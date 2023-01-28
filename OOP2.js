@@ -47,7 +47,7 @@ class Person {
             this.setHealthRate(50);
          }
           
-         return this.getHealthRate ();;
+         return this.getHealthRate ();
     }
 }
 class Employee extends Person {
@@ -57,7 +57,7 @@ class Employee extends Person {
         this.id = id;
         this.email=email;
         this.workMood = workMood;
-        this.#salary = salary;
+        this.#salary = salary<1000?1000:salary;
         this.isManager = isManager;
     }
     getSalary() {
@@ -132,7 +132,7 @@ if(x=='1'){
     let e=prompt("enter your ID");
     let f=prompt("enter your Email");
     let g=prompt("enter your workMood : happy or tired or lazy");
-    let h=prompt("enter your salary");
+    let h=Number(prompt("enter your salary"));
     let i=prompt("if you are manger enter \"yes\" else enter \" NO\"");
     const ali = new Employee(a,b,c,d,z,e,f,g,h,i);
     office1.hire(ali);
@@ -146,8 +146,12 @@ else if (x=="2"){
 else if(x=="3"){
  let  x= office1.getAllEmpoyees();
  for (let i = 0; i < x.length; i++) {
+    if(x[i].isManager=="yes")
+    alert("Employee munber : "+(i+1)+"\nName: "+x[i].fullName+"\nAge: "+x[i].age+"\nSleep Mood: "+x[i].sleepMood+"\nHealth Rate: "+x[i].getHealthRate()+"\nID: "+x[i].id+"\nemail: "+x[i].email+"\nWork Mood: "+x[i].workMood+"\nIs Manger: "+x[i].isManager+"\n");
+    else
     alert("Employee munber : "+(i+1)+"\nName: "+x[i].fullName+"\nAge: "+x[i].age+"\nSleep Mood: "+x[i].sleepMood+"\nHealth Rate: "+x[i].getHealthRate()+"\nID: "+x[i].id+"\nemail: "+x[i].email+"\nWork Mood: "+x[i].workMood+"\nsalary:"+x[i].getSalary()+"\nIs Manger: "+x[i].isManager+"\n");
  }
+
  
  
 }
